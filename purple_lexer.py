@@ -29,7 +29,7 @@ class BasicLexer(Lexer):
         return t
 
     # Comment Token
-    @_(r'//.*')
+    @_(r'//.*') 
     def COMMENT(self, t):
         pass
     
@@ -37,3 +37,16 @@ class BasicLexer(Lexer):
     @_(r'\n+')
     def newline(self, t):
         self.lineno = t.value.count('\n')
+
+if __name__ == '__main__':
+    lexer = BasicLexer()
+    env = {}
+    while True:
+        try:
+            text = input('Purple > ')
+        except EOFError:
+            break
+        if text:
+            lex = lexer.tokenize(text)
+            for token in lex:
+                print(token)
