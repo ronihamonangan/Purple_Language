@@ -8,7 +8,7 @@ import purple_lexer
 class BasicParser(Parser):
 
     # Token diteruskan dari lexer ke parser
-    tokens = BasicLexer.tokens
+    tokens = purple_lexer.BasicLexer.tokens
 
     precedence = (
         ('left', '+', '-'),
@@ -19,6 +19,14 @@ class BasicParser(Parser):
     def __init__(self):
         self.env = { }
     
-    @_(' ')
+    @_('')
     def statement(self, p):
         pass
+
+    @_('FOR var_assign TO expr THEN statement')
+    def statement(self,p):
+        return ('for_loop', ('for_loop_setup', p.var_assign, p.expr), p.statement)
+    
+    @_('IF condition THEN statement ELSE statement')
+    def statement(self,p):
+        return('if_stmt', p.condition,('branch', p.statement0, p.statement1))

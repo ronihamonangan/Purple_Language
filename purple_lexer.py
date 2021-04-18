@@ -11,11 +11,11 @@ class BasicLexer(Lexer):
 
 # Menentukan token sebagai ekspresi reguler dan menyimpannya sebagai string
 
-    FOR = r'FR'
-    IF = r'FI'
-    THEN = r'THN'
-    TO = r'OT'
-    ELSE = r'ELS'
+    FOR = r'VOOR'
+    IF = r'ALS'
+    THEN = r'DAN'
+    TO = r'NAAR'
+    ELSE = r'ANDERS'
     EQEQ = r'=='
     ARROW = r'->'
 
