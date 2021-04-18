@@ -5,7 +5,7 @@ from sly import Lexer
 # Membangun class Lexer dari SLY, dan membuat kompiler yang membuat operasi aritmatika sederhana.
 
 class BasicLexer(Lexer):
-    tokens = {NAME, NUMBER, STRING, FOR, IF, THEN, TO, ELSE, EQEQ}
+    tokens = {NAME, NUMBER, STRING, FOR, IF, THEN, TO, ELSE, EQEQ, ARROW}
     literals = {'+', '-', '*', '/', '=', ',', ';', '(', ')'}
     ignore = '\t'
 
@@ -17,6 +17,7 @@ class BasicLexer(Lexer):
     TO = r'OT'
     ELSE = r'ELS'
     EQEQ = r'=='
+    ARROW = r'->'
 
     NAME = r'[a-zA-Z_][a-zA-Z0-9_]*'
     STRING = r'\".*?"'
